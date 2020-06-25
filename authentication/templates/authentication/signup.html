@@ -1,0 +1,151 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row justify-content-center">
+
+        <div class="col-xl-6 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="logo"><a href="{% url 'index' %}" style="text-decoration: none;">Amanie.</a>
+                                </h1>
+                            </div>
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                {% include "snippets/messages.html" %}
+                            </div>
+                            <form class="user" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" name="first_name" class="form-control form-control-user"
+                                               id="exampleFirstName"
+                                               placeholder="First Name"
+                                               {% if form.first_name.value != None %}value="{{ form.first_name.value|stringformat:'s' }}"{% endif %}
+                                        >
+                                        {% if form.first_name.errors %}
+                                            <small style="color: red;">{{ form.first_name.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="last_name" class="form-control form-control-user"
+                                               id="exampleLastName"
+                                               placeholder="Last Name"
+                                               {% if form.last_name.value != None %}value="{{ form.last_name.value|stringformat:'s' }}"{% endif %}
+                                        >
+                                        {% if form.last_name.errors %}
+                                            <small style="color: red;">{{ form.last_name.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="text" name="username" class="form-control form-control-user"
+                                               id="exampleRepeatPassword"
+                                               placeholder="Username"
+                                               {% if form.username.value != None %}value="{{ form.username.value|stringformat:'s' }}"{% endif %}
+                                        >
+                                        {% if form.username.errors %}
+                                            <small style="color: red;">{{ form.username.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="email" name="email" class="form-control form-control-user"
+                                               id="exampleInputEmail"
+                                               placeholder="Email Address"
+                                               {% if form.email.value != None %}value="{{ form.email.value|stringformat:'s' }}"{% endif %}
+                                        >
+                                        {% if form.email.errors %}
+                                            <small style="color: red;">{{ form.email.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" name="phone_number" class="form-control form-control-user"
+                                               id="exampleInputPassword"
+                                               placeholder="Phone Number"
+                                               {% if form.phone_number.value != None %}value="{{ form.phone_number.value|stringformat:'s' }}"{% endif %}
+                                        >
+                                        {% if form.phone_number.errors %}
+                                            <small style="color: red;">{{ form.email.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="work_id" class="form-control form-control-user"
+                                               id="exampleRepeatPassword"
+                                               placeholder="Work ID"
+                                               {% if form.work_id.value != None %}value="{{ form.work_id.value|stringformat:'s' }}"{% endif %}
+                                        >
+                                        {% if form.work_id.errors %}
+                                            <small style="color: red;">{{ form.work_id.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" name="rank" class="form-control form-control-user"
+                                               id="exampleInputPassword"
+                                               placeholder="Rank"
+                                        {% if form.rank.value != None %}value="{{ form.rank.value|stringformat:'s' }}"{% endif %}
+                                        >
+                                        {% if form.rank.errors %}
+                                            <small style="color: red;">{{ form.rank.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="location" class="form-control form-control-user"
+                                               id="exampleRepeatPassword"
+                                               placeholder="Location"
+                                        {% if form.location.value != None %}value="{{ form.location.value|stringformat:'s' }}"{% endif %}
+                                        >
+                                        {% if form.location.errors %}
+                                            <small style="color: red;">{{ form.location.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" name="password1" class="form-control form-control-user"
+                                               id="exampleInputPassword"
+                                               placeholder="Password">
+                                        {% if form.password1.errors %}
+                                            <small style="color: red;">{{ form.password1.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" name="password2" class="form-control form-control-user"
+                                               id="exampleRepeatPassword"
+                                               placeholder="Repeat Password">
+                                        {% if form.password2.errors %}
+                                            <small style="color: red;">{{ form.password2.errors }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Register
+                                </button>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="{% url 'login' %}">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
