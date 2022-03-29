@@ -30,7 +30,7 @@ more-itertools==8.0.2
 odfpy==1.4.0
 openpyxl==3.0.3
 packaging==20.4
-paramiko==2.7.1
+paramiko==2.10.1
 pkginfo==1.5.0.1
 prompt-toolkit==2.0.9
 psycopg2==2.8.4
